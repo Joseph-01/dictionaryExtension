@@ -1,11 +1,14 @@
 {
     "manifest_version": 3,
-    "version": "1.0",
-    "name": "dictionary extnsion",
+    "name": "test",
+    "version": "0.0.1",
+    "description": "just Test",
+    "permissions": ["scripting"],
+    "host_permissions": [
+        "http://*/*",
+        "https://*/*"
+    ],
     "action": {
         "default_popup": "index.html"
-    },
-    "permissions": [
-        "tabs"
-    ]
+    }
 }
