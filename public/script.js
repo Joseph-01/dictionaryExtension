@@ -3,8 +3,6 @@ function getSelectionText() {
     if (text === '') {
         alert('Please highlight a text')
     } else {
-        var audioDisplay = document.querySelector('#display')
-        var partOfSpeechDisplay = document.querySelector(".parts_of_speech")
         var word = ''
         var partOfSpeech = ''
         var definitions = ''
@@ -24,23 +22,11 @@ function getSelectionText() {
             for (let i = 0; i < parsedData[0].meanings.length; i++) {
                 //to display parts of speech
                 partOfSpeech = parsedData[0].meanings[i].partOfSpeech
-                // var liDisplay = document.createElement("li")
-                // liDisplay.innerHTML = partOfSpeech
-                // partOfSpeechDisplay.appendChild(liDisplay)
-
                 //to display meaning
                 definitions = parsedData[0].meanings[i].definitions[0].definition
-                // var defDisplay = document.createElement("li")
-                // defDisplay.innerHTML = definitions
-                // partOfSpeechDisplay.appendChild(defDisplay)
+                //to display audio
                 audio = parsedData[0].phonetics[1].audio
-                // audioDisplay.innerHTML = `<audio controls>
-                //                     <source src="${audio}" type="audio/mp3">
-                //                 </audio>`
-                var display = `<ul>
-                                    <li>${partOfSpeech}</li>
-                                    <li>${definitions}</li>
-                                </ul>`
+                var display = "(" + word + ") " + partOfSpeech + ":   " + definitions
 
                 alert(display)
             }
@@ -51,8 +37,6 @@ function getSelectionText() {
 }
 
 let clickBtn = document.getElementById('click')
-
-// clickBtn.addEventListener('click', getSelectionText)
 
 clickBtn.addEventListener("click", function () {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {

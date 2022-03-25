@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "test",
+    "name": "dictionary extension by Joe",
     "version": "0.0.1",
     "description": "just Test",
     "permissions": ["scripting"],
